@@ -1,3 +1,25 @@
+" Install the vim-plug plugin manager.
+" On the first run give the command :PlugInstall
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin()
+    Plug 'itchyny/lightline.vim'
+    Plug 'preservim/nerdcommenter'
+    Plug 'preservim/nerdtree'
+    Plug 'Xuyuanp/nerdtree-git-plugin'
+    Plug 'airblade/vim-gitgutter'
+    Plug 'junegunn/fzf', { 'do': '.install --bin' }
+    Plug 'junegunn/fzf.vim'
+    Plug 'elixir-editors/vim-elixir'
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    " :CocInstall coc-elixir
+call plug#end()
+
+
 " URL: http://vim.wikia.com/wiki/Example_vimrc
 " Authors: http://vim.wikia.com/wiki/Vim_on_Freenode
 " Description: A minimal, but feature rich, example .vimrc. If you are a
